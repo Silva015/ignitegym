@@ -6,6 +6,7 @@ import {
 } from "@expo-google-fonts/roboto";
 import { Text, GluestackUIProvider, Center } from "@gluestack-ui/themed";
 import { config } from "./config/gluestack-ui.config";
+import { Loading } from "@components/Loading";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,7 +25,7 @@ export default function App() {
           <Text color="$white">Home</Text>
         </Center>
       ) : (
-        <Text>Loading...</Text>
+        <Loading />
       )}
     </GluestackUIProvider>
   );

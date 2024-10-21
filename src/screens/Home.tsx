@@ -5,6 +5,15 @@ import { useState } from "react";
 import { ExerciseCard } from "@components/ExerciseCard";
 
 export function Home() {
+  const [exercises, setExercises] = useState([
+    "Supino Reto",
+    "Rosca Direta",
+    "Puxada Frontal",
+    "Desenvolvimento",
+    "Leg Press",
+    "Abdominal",
+    "Tríceps Pulley",
+  ]);
   const [groups, setGroups] = useState([
     "Costas",
     "Ombro",
@@ -36,18 +45,24 @@ export function Home() {
         style={{ marginVertical: 40, maxHeight: 44, minHeight: 44 }}
       />
 
-      <VStack px="$8">
+      <VStack px="$8" flex={1}>
         <HStack justifyContent="space-between" mb="$5">
           <Heading color="$gray200" fontSize="$md">
             Exercícios
           </Heading>
 
           <Text color="$gray200" fontSize="$sm" fontFamily="$body">
-            4
+            {exercises.length}
           </Text>
         </HStack>
 
-        <ExerciseCard />
+        <FlatList
+          data={exercises}
+          keyExtractor={(item) => item as string}
+          renderItem={() => <ExerciseCard onPress={() => {}} />}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 20 }}
+        />
       </VStack>
     </VStack>
   );

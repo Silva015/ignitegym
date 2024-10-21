@@ -10,9 +10,6 @@ export function Home() {
     "Rosca Direta",
     "Puxada Frontal",
     "Desenvolvimento",
-    "Leg Press",
-    "Abdominal",
-    "Tríceps Pulley",
   ]);
   const [groups, setGroups] = useState([
     "Costas",
@@ -35,7 +32,7 @@ export function Home() {
         renderItem={({ item }) => (
           <Group
             name={item as string}
-            isActive={groupSelected === item}
+            isActive={groupSelected.toLowerCase() === item.toLowerCase()}
             onPress={() => setGroupSelected(item as string)}
           />
         )}
